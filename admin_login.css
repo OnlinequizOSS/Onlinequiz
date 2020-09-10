@@ -1,0 +1,113 @@
+body{
+  margin: 25rem;
+  padding: 0;
+  background-color: #8aa7ec;
+  background-size: cover;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+
+}
+.loginbox{
+    border-radius: 0.3125rem;
+    width: 25rem;
+    height: 31.25rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 3.75rem 1.875rem;
+}
+.loginbox:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+
+
+}
+.avatarbox {
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 6.25rem;
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, 75%);
+    padding: 1.5625rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.avatarbox img{
+  width: 100%;
+}
+h1{
+  font-family: 'Patua One', cursive;
+  margin: 0;
+  text-align: center;
+  padding: 2.5rem 0;
+  font-size: 2.625rem;
+}
+.formbox{
+  width: 100%;
+  margin-bottom: 1.25rem;
+  text-align: left;
+  border-radius: 0.625rem;
+}
+.formbox p{
+  margin: 0.4375rem 0 0;
+  padding: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.formbox input[type="text"], .formbox input[type="password"] {
+  border: 0;
+  border-bottom: 0.125rem solid #fff;
+  margin-bottom: 0.875rem;
+  background: transparent;
+  outline: none;
+  height: 2.1875rem;
+  width: 100%;
+  color: #fff;
+  font-size: 0.9375rem;
+}
+.formbox input[type="text"]:focus , .formbox input[type="password"]:focus {
+  border-bottom: transparent;
+}
+.btn{
+  font-family: 'Source Sans Pro', sans-serif;
+font-weight: bolder;
+text-decoration: none;
+border: 0.125rem solid;
+border-color: rgba(0, 0, 0, 0.3);
+border-radius: 0.625rem;
+color: black;
+margin: 0.9375rem 0;
+padding: 0.625rem 1.25rem;
+font-size: 1.25rem;
+cursor: pointer;
+position: absolute;
+left: 50%;
+right: 50%;
+transform: translate(-50%, 0%);
+}
+.btn:hover{
+    background: transparent;
+    color: white;
+    transition: 0.5s;
+}
+::placeholder{
+  color: white;
+  font-family: cursive;
+  font-size: 0.9375rem;
+}
+/* iphone */
+@media screen and (max-width: 480px){
+  .loginbox{
+      width: 20rem;
+      height: 30.25rem;
+  }
+  .avatarbox {
+    transform: translate(-50%, 70%);
+  }
+}

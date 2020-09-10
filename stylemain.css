@@ -1,0 +1,87 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    color:white;
+    height:100vh;
+    padding-top:3vh;
+    text-align:center;
+    width:100%;
+    overflow:hidden;
+}
+
+#welcome{
+    font-size:3vw;
+    color:#5773b3;
+    margin-top:3vh;
+    margin-bottom:15px;
+    font-family:'Aladin',cursive;
+    animation-delay: 0.3s;
+}
+
+#to{
+    font-size:2.5vw;
+    color:#5773b3;
+    font-family:'Aladin',cursive;
+    animation-delay: 0.7s;
+}
+
+#title{
+    font-size:5.3vw;
+    /*margin-left:40%;*/
+    text-align:center;
+    font-family: 'Aladin';
+    margin-top:7vh;
+    letter-spacing:5px;
+    text-shadow:3px 3px 4px #111;
+   /* animation: change 1.5s infinite alternate; */
+   animation-delay: 1.1s;
+}
+
+
+@keyframes change{
+    from{
+        letter-spacing:5px;
+    }
+    to{
+        letter-spacing:10px;
+    }
+}
+
+#userportal, #adminportal{
+    width:25%;
+    line-height:10vh;
+    font-size:2vw;
+    margin:auto;
+    text-align:center;
+    border: #fff 1px solid;
+    border-radius:50px;
+    transition-duration: 0.3s;
+    cursor:pointer;
+}
+#icon1,#icon2{
+    width:10%;
+    height:2.6vw;
+    position:relative;
+    top:5px;
+}
+#userportal{
+    margin-top:15vh;
+    margin-bottom:8vh;
+}
+
+#userportal:hover, #adminportal:hover,#userportal:focus, #adminportal:focus{
+    background:#ffffff30;
+    line-height:12vh;
+    width:27%;
+    font-size:2.2vw;
+    box-shadow:4px 4px 5px #5773b3;
+}
+
+#userportal:active, #adminportal:active{
+    transform:translateY(6px);
+}

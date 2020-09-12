@@ -1,0 +1,110 @@
+body{
+   background-color:#8aa7ec;
+   font-family: sans-serif;
+   margin: 0;
+   padding: 0;
+}
+.container{
+    border: 1px solid black;
+    margin:200px auto;
+    padding:10px;
+    width:30%;
+    background-color:transparent;
+    outline: none;
+    border-style: none;
+    box-shadow: 0 0 10px rgba(255,255,255,.3);
+    border-radius: 10px;
+
+}
+.user{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 140px;
+    left: calc(50% - 50px);
+}
+.form{
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:20px;
+    color:white;
+}
+
+.input{
+    box-sizing: border-box;
+    margin:10px;
+    border:1px solid black;
+    border-radius: 10px;
+    width:100%;
+    border-style: none;
+    outline: none;
+    background-color: greenyellow;
+    padding: 10px;
+    color:black;
+}
+
+.button {
+   
+    color: #000;
+    transition: all 0.3s ease 0s;
+    text-transform: uppercase;
+     letter-spacing: 2.5px;
+     background-color:white;
+     width:50%;
+ 
+}
+
+.button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: scale(1.1);
+    cursor: pointer;
+   
+  }
+
+  .top{
+      text-align: center;  
+      margin-top:30px;
+      color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     }
+
+     ::-webkit-input-placeholder { 
+        color:black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      @media(max-width:770px)
+      {
+        
+      .container{
+          width:100%;
+          margin:0 auto;
+          outline: 0em;
+
+      } 
+      .form{
+            width:50%;
+      }
+      .user{
+          position: relative;
+
+      }
+                  
+      }
+      .already{
+          text-decoration: none;
+          color:white;
+          margin:20px;
+      }
+      .already:hover{
+          color:red;
+      }
+
+      .error{
+          color:red;
+      }

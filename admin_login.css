@@ -5,7 +5,9 @@ body{
   background-size: cover;
   text-align: center;
   font-family: 'Merriweather', serif;
-
+  width:100%;
+  height:100vh;
+  overflow:hidden;
 }
 .mainmenu{
     display: inline;
@@ -14,10 +16,12 @@ body{
     right: 3.125rem;
     font-size: 20px;
 }
+
 a{
   text-decoration: none;
   font-family: cursive;
   color: black;
+  transition:0.2s;
 }
 a:hover {
   color: white;
@@ -34,12 +38,12 @@ a:hover {
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 3.75rem 1.875rem;
+    transition:0.5s;
 }
 .loginbox:hover{
   background-color: rgba(0, 0, 0, 0.3);
   transition: 0.5s;
-
-
+  box-shadow:4px 4px 6px #444;
 }
 .avatarbox {
     width: 12.5rem;
@@ -85,6 +89,7 @@ h1{
   width: 100%;
   color: #fff;
   font-size: 0.9375rem;
+  cursor:pointer;
 }
 .formbox input[type="text"]:focus , .formbox input[type="password"]:focus {
   border-bottom: transparent;

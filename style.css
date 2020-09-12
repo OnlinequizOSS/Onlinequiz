@@ -94,6 +94,17 @@ body{
           position: relative;
 
       }
-     
-                   
+                  
+      }
+      .already{
+          text-decoration: none;
+          color:white;
+          margin:20px;
+      }
+      .already:hover{
+          color:red;
+      }
+
+      .error{
+          color:red;
       }

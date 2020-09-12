@@ -1,3 +1,6 @@
+<?php
+require "admincheck.php";
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Patua+One&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
+  <div id="error"></div>
     <div class="mainmenu">
       <a href="index.php">Go Back To Main Menu</a>
     </div>
@@ -20,17 +24,35 @@
           <h1>Admin Login</h1>
           <div class="formbox">
 
-            <form class="" action="admin_login.html" method="post">
+            <form class="" action="" method="Post">
               <p>Username</p>
-              <input type="text" name="" placeholder="Enter Username">
+              <input type="text" name="username" placeholder="Enter Username">
               <p>Password</p>
-              <input type="password" name="" placeholder="Enter Password"> <br><br>
+              <input type="password" name="password" placeholder="Enter Password"> <br><br>
               <!-- <input type="submit" name="" value="Login"><br> -->
-              <button type="submit" class="btn" name="login_user">Login</button>
+              <button type="submit" class="btn" name="submit">Login</button>
             </form>
 
           </div>
     </div>
+    <script>
+    var userright= <?php echo $userright ?>;
+    var passright= <?php echo $passright ?>;
+    if(userright==0||passright==0)
+    {
+      document.getElementById('error').innerHTML="You are not an admin";
+    }
+    else
+    {
+      window.location.replace("adminportal.php");
+    }
+    setTimeout(clear,5000);
+    function clear()
+    {
+      document.getElementById('error').innerHTML="";
+    }
+
+    </script>
 
   </body>
 </html>

@@ -2,7 +2,9 @@
  
 $gendererr= $lasterr=$numerr=$firsterr=$emailerr=$passerr=$cpasserr="";
 if(isset($_POST['submit']))
-{    
+{
+    $phonealready =0;
+    $emailalready=0;   
    $flag=true;
       $_POST['flag']=0;
         $confirmed=true;
@@ -137,14 +139,14 @@ if(isset($_POST['submit']))
             $numerr="Number already registered";
             $confirmed=false;
             if(!$confirmed)
-             echo "";
+             $phonealready=1;
         }
         if(mysqli_num_rows($res_em)>0)
         {
             $emailerr="Email already registered";
             $confirmed=false;
             if(!$confirmed)
-            echo "";
+            $emailalready=1;
         }
     
 		if($confirmed)
@@ -171,7 +173,7 @@ if(isset($_POST['submit']))
     </title>
 </head>
 
-<body >
+<body onload="setTimeout(clear,3000)">
     <div class="back" onclick="mainmenu()">Back</div>
     <div class="container">
 
@@ -341,6 +343,8 @@ function mainmenu()
 {
     window.location.replace("index.php");
 }
+
+
 
 </script>
 

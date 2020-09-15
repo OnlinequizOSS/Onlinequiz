@@ -72,7 +72,7 @@ if(isset($_POST['submit'])){
               <p>Password</p>
               <input type="password" name="password" placeholder="Enter Password" required onchange="checkpass(this)"><br><br>
               <p id="passerror"></p>
-              <button type="submit" class="btn" name="submit" onclick="return checkboth()">Login</button>
+              <button type="submit" id="btn" class="btn" name="submit" onclick="return checkboth()">Login</button>
             </form>
           </div>
           <br><p>Haven't registered yet? <a href="user_registration.php">Sign up here</a></p>
@@ -104,12 +104,12 @@ if(inputtxt.value.match(passw))
 { 
     passcorr=1;
     document.getElementById('passerror').innerHTML="";
-    document.getElementById('passerror').style.display="none";
+    document.getElementById('passerror').style.display="block";
 }
 else
 { 
     passcorr=0;
-    document.getElementById('passerror').innerHTML="wrong password formate";
+    document.getElementById('passerror').innerHTML="wrong password format";
     document.getElementById('passerror').style.display="block";
 }
 }
@@ -129,6 +129,8 @@ function clear()
 {
   document.getElementById('1').innerHTML="";
   document.getElementById('2').innerHTML="";
+  document.getElementById('1').style.display="none";
+  document.getElementById('2').style.display="none";
 }
 
 </script>

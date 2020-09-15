@@ -105,11 +105,11 @@ position: absolute;
 left: 50%;
 right: 50%;
 transform: translate(-50%, -40%);
+transition:0.5s;
 }
 .btn:hover{
     background: transparent;
     color: white;
-    transition: 0.5s;
 }
 ::placeholder{
   color: white;
@@ -149,7 +149,7 @@ a:hover {
 
 #emailerr,#passerror{
   color:red;
-  font-size:70%;
+  font-size:80%;
   position:relative;
   bottom:4px;
 }

@@ -5,6 +5,8 @@ body{
   background-size: cover;
   text-align: center;
   font-family: 'Merriweather', serif;
+  width:100%;
+  overflow:hidden;
 
 }
 .mainmenu{
@@ -26,12 +28,11 @@ body{
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 3.75rem 1.875rem;
+    transition:0.5s;
 }
 .loginbox:hover{
   background-color: rgba(0, 0, 0, 0.3);
-  transition: 0.5s;
-
-
+  box-shadow:3px 3px 5px #444;
 }
 .avatarbox {
     width: 9.375rem;
@@ -62,6 +63,11 @@ h1{
   text-align: left;
   border-radius: 0.625rem;
 }
+
+input{
+  cursor:pointer;
+}
+
 .formbox p{
   margin: 0.4375rem 0 0;
   padding: 0;
@@ -139,4 +145,19 @@ a:hover {
     top: 0.9375rem;
     font-size: 0.9375rem;
   }
+}
+
+#emailerr,#passerror{
+  color:red;
+  font-size:70%;
+  position:relative;
+  bottom:4px;
+}
+
+h3{
+  position:absolute;
+  top:3px;
+  left:44%;
+  color:red;
+  font-family:cursive,sans-serif;
 }

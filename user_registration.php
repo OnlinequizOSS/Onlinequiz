@@ -1,12 +1,10 @@
  <?php
  
-
-    header('location:redirect.php');
-
-
 $gendererr= $lasterr=$numerr=$firsterr=$emailerr=$passerr=$cpasserr="";
 if(isset($_POST['submit']))
-{    
+{
+    $phonealready =0;
+    $emailalready=0;   
    $flag=true;
       $_POST['flag']=0;
         $confirmed=true;
@@ -41,45 +39,48 @@ if(isset($_POST['submit']))
             $emailerr="This is a required field.";
             $confirmed=false;
             if(!$confirmed)
-            echo "1";
+             echo "";
         }
+
          if(empty($password))
         {
             $passerr="This is a required field.";
             $confirmed=false;
             if(!$confirmed)
-            echo "2";
+             echo "";
         }
+
         if(empty($cpassword) && empty($passerr))
         {
             $cpasserr="This is a required field.";
             $confirmed=false;
             if(!$confirmed)
-            echo "3";
+             echo "";
         }
+
          if(empty($gender))
         {
             $gendererr="This is a required field.";
             $confirmed=false;
             if(!$confirmed)
-            echo "4";
+             echo "";
         }
     
 		
-		if (!preg_match("/^[A-Za-z]{5,255}$/",($first))&& !empty($first) ) {     // regex for string validation
+		if (!preg_match("/^[A-Za-z]{3,255}$/",($first))&& !empty($first) ) {     // regex for string validation
             $firsterr = "Only alphabets are allowed.";
          //    echo $stringerr;      
             $confirmed=false;
             if(!$confirmed)
-            echo "5";
+            echo "";
         }
 
-        if (!preg_match("/^[A-Za-z]{5,255}$/",($last)) && !empty($last)) {     // regex for string validation
+        if (!preg_match("/^[A-Za-z]{3,255}$/",($last)) && !empty($last)) {     // regex for string validation
             $lasterr = "Only alphabets and whitespace are allowed.";
             // echo $stringerr; 
             $confirmed=false;     
             if(!$confirmed)
-            echo "6";
+            echo "";
         }
        
 
@@ -90,7 +91,7 @@ if(isset($_POST['submit']))
              $confirmed=false;
               // echo $emailerr;
               if(!$confirmed)
-            echo "7";
+              echo "";
             } 
             if(!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/",$password) && !empty($password)) //regex for password validation
             { 
@@ -98,7 +99,7 @@ if(isset($_POST['submit']))
         // echo $passerr;
              $confirmed=false;
              if(!$confirmed)
-            echo "8";
+             echo "";
             }
 
 
@@ -108,7 +109,7 @@ if(isset($_POST['submit']))
             $numerr="Invalid phone!";
             $confirmed=false;
             if(!$confirmed)
-            echo "9";
+             echo "";
         }
 
         if (!($password==$cpassword) && empty($passerr)) {
@@ -116,7 +117,7 @@ if(isset($_POST['submit']))
             // echo $cpasserr;
             $confirmed=false;
             if(!$confirmed)
-            echo "10";
+            echo "";
         }
 
         if(empty($gender)) 
@@ -124,14 +125,12 @@ if(isset($_POST['submit']))
             $gendererr= "You forgot to select your Gender!";
            $confirmed=false;
            if(!$confirmed)
-            echo "11";
+             echo "";
         }
 
         $conn=mysqli_connect("localhost","root","","quizickle");
-
         $sql_p = "SELECT * FROM user_registration WHERE phone='$phone'";
         $sql_em="SELECT * FROM user_registration WHERE email='$email'";
-
         $res_p = mysqli_query($conn, $sql_p);
         $res_em = mysqli_query($conn, $sql_em);
 
@@ -140,14 +139,14 @@ if(isset($_POST['submit']))
             $numerr="Number already registered";
             $confirmed=false;
             if(!$confirmed)
-            echo "11";
+             $phonealready=1;
         }
         if(mysqli_num_rows($res_em)>0)
         {
             $emailerr="Email already registered";
             $confirmed=false;
             if(!$confirmed)
-            echo "12";
+            $emailalready=1;
         }
     
 		if($confirmed)
@@ -174,7 +173,8 @@ if(isset($_POST['submit']))
     </title>
 </head>
 
-<body >
+<body onload="setTimeout(clear,3000)">
+    <div class="back" onclick="mainmenu()">Back</div>
     <div class="container">
 
      <div class="boxes">
@@ -184,29 +184,35 @@ if(isset($_POST['submit']))
              <h3>User Registration</h3>
          </div>
          <form action="?"class="form" method="POST">
-             <input class="input" name="first" type="text" placeholder="First name" value="<?php echo isset($_POST['first']) ? $_POST['first'] : ''; ?>">
+             <input class="input" name="first" type="text" placeholder="First name" value="<?php echo isset($_POST['first']) ? $_POST['first'] : ''; ?>" required onchange="checkfirst(this)">
+             <p id="firstnameerr"></p>
              <span class="error"><?php echo $firsterr; $firsterr="";?></span>
-             <input class="input" name="last" type="text" placeholder="Last name" value="<?php echo isset($_POST['last']) ? $_POST['last'] : ''; ?>">
+             <input class="input" name="last" type="text" placeholder="Last name" value="<?php echo isset($_POST['last']) ? $_POST['last'] : ''; ?>" required onchange="checklast(this)">
+             <p id="lastnameerr"></p>
              <span class="error"><?php echo $lasterr;?></span>
-             <input class="input" name="email" placeholder="Email-id" value="<?php echo isset($_POST['email']) ? $_POST['email'] : '';  ?>" >
+             <input class="input" name="email" placeholder="Email-id" value="<?php echo isset($_POST['email']) ? $_POST['email'] : '';  ?>"  required onchange="checkmail(this)">
+             <p id="emailerr"></p>
              <span class="error"><?php echo $emailerr;?></span>
-             <input class="input" name="phone" type="text" placeholder="phone number" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : '';  ?>">
+             <input class="input" name="phone" type="text" placeholder="phone number" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : '';  ?>" required onchange="checkphone(this)">
+             <p id="phoneerr"></p>
              <span class="error"><?php echo $numerr;?></span>
-             <select class="input" name="gender" placeholder="Gender">
+             <select class="input" name="gender" placeholder="Gender" required>
              <option value="">Gender</option>
               <option value="m">Male</option>
             <option value="f">Female</option>
              </select>
              <span class="error"><?php echo $gendererr;?></span>
-             <input class="input" name="password" type="password" placeholder="password">
+             <input class="input" name="password" id="password" type="password" placeholder="password" onchange="checkpass(this)" required>
+             <p id="passerror"></p>
              <span class="error"><?php echo $passerr;?></span>
-             <input class="input" name="cpassword" type="password" placeholder="confirm password" >
+             <input class="input" name="cpassword" type="password" placeholder="confirm password" required onchange="checkmatch(this)">
+             <p id="cpasserror"></p>
              <span class="error"><?php echo $cpasserr;?></span>
              <input name="flag" type="hidden" value="1">
-             <input class ="input button" name="submit" type="submit" placeholder="SUBMIT" > 
+             <input class ="input button" name="submit" type="submit" placeholder="SUBMIT" onclick="return checkall()"> 
          </form>
          <div>
-           <a  class="already" href="#">Already have an account?</a>
+           <a  class="already" href="user_login.php">Already have an account?</a>
          </div>
      </div>
     </div>
@@ -216,12 +222,131 @@ if(isset($_POST['submit']))
 
 <script>
 
+var passcorr=0;
+var firstcorr=0;
+var lastcorr=0;
+var emailcorr=0;
+var phonecorr=0;
+var passmatch=0;
+function checkpass(inputtxt){
+var passw=  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+if(inputtxt.value.match(passw)) 
+{ 
+    passcorr=1;
+    document.getElementById('passerror').innerHTML="";
+    document.getElementById('passerror').style.display="none";
+}
+else
+{ 
+    passcorr=0;
+    document.getElementById('passerror').innerHTML="Password too weak";
+    document.getElementById('passerror').style.display="block";
+}
+}
+
+function checkfirst(inputtxt){
+var passw=  /^[A-Za-z]{3,255}$/;
+if(inputtxt.value.match(passw)) 
+{ 
+    firstcorr=1;
+    document.getElementById('firstnameerr').innerHTML="";
+    document.getElementById('firstnameerr').style.display="none";
+}
+else
+{ 
+    firstcorr=0;
+    document.getElementById('firstnameerr').innerHTML="Invalid first name";
+    document.getElementById('firstnameerr').style.display="block";
+}
+}
+
+function checklast(inputtxt){
+var passw=  /^[A-Za-z]{3,255}$/;
+if(inputtxt.value.match(passw)) 
+{ 
+    lastcorr=1;
+    document.getElementById('lastnameerr').innerHTML="";
+    document.getElementById('lastnameerr').style.display="none";
+}
+else
+{ 
+    lastcorr=0;
+    document.getElementById('lastnameerr').innerHTML="Invalid last name";
+    document.getElementById('lastnameerr').style.display="block";
+}
+}
+
+function checkmail(inputtxt){
+var mailpattern=  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+if(inputtxt.value.match(mailpattern)) 
+{ 
+    emailcorr=1;
+    document.getElementById('emailerr').innerHTML="";
+    document.getElementById('emailerr').style.display="none";
+}
+else
+{ 
+    emailcorr=0;
+    document.getElementById('emailerr').innerHTML="Invalid Email";
+    document.getElementById('emailerr').style.display="block";
+}
+}
+
+
+function checkphone(inputtxt){
+var pattern=  /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+if(inputtxt.value.match(pattern)) 
+{ 
+    phonecorr=1;
+    document.getElementById('phoneerr').innerHTML="";
+    document.getElementById('phoneerr').style.display="none";
+}
+else
+{ 
+    phonecorr=0;
+    document.getElementById('phoneerr').innerHTML="Invalid Phone number";
+    document.getElementById('phoneerr').style.display="block";
+}
+}
+
+function checkmatch(element)
+{
+    var pass=document.getElementById('password');
+    if(element.value==pass.value)
+    {
+        passmatch=1;
+        document.getElementById('cpasserror').innerHTML="";
+        document.getElementById('cpasserror').style.display="none";
+    }
+    else
+    {
+        passmatch=0;
+        document.getElementById('cpasserror').innerHTML="Passwords don not match";
+        document.getElementById('cpasserror').style.display="block";
+    }
+}
+
+function checkall()
+{
+    if(passcorr==0||firstcorr==0||lastcorr==0||emailcorr==0||phonecorr==0||passmatch==0)
+    {
+        alert("Please enter valid inputs");
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function mainmenu()
+{
+    window.location.replace("index.php");
+}
+
+
 
 </script>
-
-
-
-
 
 
 

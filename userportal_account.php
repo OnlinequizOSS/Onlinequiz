@@ -8,6 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/2f57eae505.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="userportal.css">
+    <link rel="stylesheet" href="useraccount.css">
     <title>Student Portal</title>
 </head>
 <body>
@@ -25,10 +26,24 @@ session_start();
     </nav>
     <section>
     <?php 
-    echo "Hello!<br>";
-    echo $_SESSION['name']; 
     
+    include "dbcon.php";
+    $email=$_SESSION['email'];
+    $emailquery="select * from user_registration where email='$email'";
+    $query=mysqli_query($con,$emailquery);
+    $detailsrow= mysqli_fetch_assoc($query);
+    echo "your details:";
+    echo "<table>";
+    echo "<tr>";
+    echo "<td>"; echo "First name "; echo "</td>"; echo "<td>";  echo $detailsrow['firstname']; echo "</td>"; echo "</tr>"; 
+    echo "<td>"; echo "Last name "; echo "</td>"; echo "<td>";  echo $detailsrow['lastname']; echo "</td>"; echo "</tr>";
+    echo "<td>"; echo "Email "; echo "</td>"; echo "<td id='mail'>";  echo $detailsrow['email']; echo "</td>"; echo "</tr>";
+    echo "<td>"; echo "Phone "; echo "</td>"; echo "<td>";  echo $detailsrow['phone']; echo "</td>"; echo "</tr>";
+    echo "<td>"; echo "Gender "; echo "</td>"; echo "<td>";  echo $detailsrow['gender']; echo "</td>"; echo "</tr>";
+    echo "</table>";
     ?>
+
+    <div id="button">Change Password</div>
     </section>
 </body>
 </html>

@@ -156,7 +156,7 @@ if(isset($_POST['submit']))
             values ('$first','$last','$phone','$email','$gender','$hashed_password')";
 
 			mysqli_query($conn,$sql);
-			header("Location: welcome.html");
+			header("Location: user_login.php");
 		
 		}
     }

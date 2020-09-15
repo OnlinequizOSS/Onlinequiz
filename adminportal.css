@@ -1,0 +1,68 @@
+*{
+  padding: 0;
+
+}
+.titlehead{
+  background-color: #8aa7ec;
+  padding: 20px 40px;
+  margin-left: 0;
+
+}
+.titlehead h1{
+  color: white;
+  display: inline;
+  float: left;
+  font-size: 3rem;
+  font-weight: bold;
+}
+.log{
+   display: inline;
+  text-align: right;
+}
+.logout{
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+.logout:hover{
+  color: white;
+  text-decoration: none;
+}
+.col-lg-6{
+  padding: 0;
+}
+.dashboard{
+  padding: 0;
+  border:1px solid #8aa7ec;
+  border-top: none;
+}
+.hello{
+  color: #007bff;
+  padding-left: 40px;
+}
+#dashboard-items{
+  padding-right: 15px;
+}
+/* .nav-item:hover{
+  background-color: #adaaaa;
+
+} */
+.nav-item a:hover {
+      color: green;
+  }
+
+  /*code to change background color*/
+  .navbar-nav .active a {
+      background-color: #C0C0C0;
+      color: green;
+  }
+  /* background: rgb(238, 238, 238) */
+
+
+/* add quiz */
+  .addquiz{
+    margin: auto;
+    width: 50%;
+  }
+.addques{
+  margin: 15px auto;
+}

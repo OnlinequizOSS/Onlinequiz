@@ -40,6 +40,7 @@ if(isset($_POST['submit'])){
       $succ= password_verify($pass,$checkpass);
       if($succ){
           $_SESSION['name']=$regpass['firstname'];
+          $_SESSION['email']=$email;
           header("location:userportal.php");
       } 
       else{

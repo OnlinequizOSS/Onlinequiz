@@ -36,10 +36,16 @@ td{
 }
 
 #button:hover{
-    background:#8a78b9;
+   
     box-shadow:2px 2px 4px #1b0872;
+    background-color: blue;
 }
 
 #button:active{
     transform:translateY(3px);
 }
+
+.link{
+    text-decoration: none;
+}
+

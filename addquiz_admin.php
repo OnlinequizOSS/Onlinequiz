@@ -1,30 +1,15 @@
-<?php  include 'db.php';
+<?php
+	session_start();
+include 'db.php';
+ if (!isset($_SESSION["adminlogin"])) {
+   ?>
+   <script type="text/javascript">
+     window.location="index.php";
+   </script>
+<?php
+ }
 
-
-if(isset($_POST['addq'])){
-	$quizname = mysqli_real_escape_string($connection, $_POST['quizname']);
-	$totalques = mysqli_real_escape_string($connection,$_POST['totalques']);
-	$correctno = mysqli_real_escape_string($connection,$_POST['correctno']);
-  $wrongno =  mysqli_real_escape_string($connection,$_POST['wrongno']);
-  $testtime =  mysqli_real_escape_string($connection,$_POST['testtime']);
-
-
-  $query = "INSERT INTO quiz (quizname, totalques, correctno, wrongno, testtime)
-        VALUES('$quizname', '$totalques', '$correctno', '$wrongno', '$testtime')";
-
-
-  $result = mysqli_query($connection,$query);
-	if ($result) {
-  // $last_id = mysqli_insert_id($connection);
-		session_start();
-		$_SESSION['quizn'] = $quizname;
-		$_SESSION['totalq']= $totalques;
-    header("location: addques_admin.php");
-  }else{
-    die("Query for quiz could not be executed" . $query);
-  }
-}
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -38,9 +23,9 @@ if(isset($_POST['addq'])){
 
   <body>
     <?php require "adminportal.php" ?>
-    <span class="title1" style="margin-left:40%;font-size:30px;"><b>Enter Quiz Details</b></span><br /><br />
+    <span class="title1"><b>Enter Quiz Details</b></span>
 
-        <form class="form-horizontal addquiz" name="form" action="addquiz_admin.php"  method="POST">
+        <form class="form-horizontal addquiz" name="form" action="update.php?q=addqu"  method="POST">
           <fieldset>
             <div class="form-group">
 

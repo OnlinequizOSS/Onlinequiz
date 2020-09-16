@@ -1,3 +1,12 @@
+<?php session_start();
+ if (!isset($_SESSION["adminlogin"])) {
+   ?>
+   <script type="text/javascript">
+     window.location="index.php";
+   </script>
+<?php
+ }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

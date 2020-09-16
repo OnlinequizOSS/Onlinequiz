@@ -1,7 +1,7 @@
 <div class="row titlehead navbar ">
-  <h1 class="col-lg-6">Quizzicle</h1>
+  <h1 class="col-lg-6">Quizickle</h1>
   <div class="log col-lg-6">
-    <h3><a class="logout" href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></h3>
+    <h3><a class="logout" href="admin_logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></h3>
   </div>
 </div>
 

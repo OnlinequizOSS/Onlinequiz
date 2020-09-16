@@ -1,6 +1,6 @@
 *{
   padding: 0;
-
+color: #007bff;
 }
 .titlehead{
   background-color: #8aa7ec;
@@ -47,22 +47,45 @@
 
 } */
 .nav-item a:hover {
-      color: green;
+      color: black;
   }
-
-  /*code to change background color*/
-  .navbar-nav .active a {
-      background-color: #C0C0C0;
-      color: green;
-  }
-  /* background: rgb(238, 238, 238) */
-
-
 /* add quiz */
   .addquiz{
     margin: auto;
-    width: 50%;
+    width: 30%;
+    margin-top: 25px;
   }
 .addques{
   margin: 15px auto;
+}
+.title1{
+   margin-left:40%;
+   font-size:35px;
+   color: #007bff;
+   position: relative;
+   top: 20px;
+}
+.removetable{
+    font-size: 20px;
+    color: #007bff;
+    position: relative;
+    top: 20px;
+    margin: auto;
+    width: 65%;
+    margin-top: 40px;
+}
+.removebtn{
+  margin:0px;
+  border-color:#007bff;
+}
+.hometable{
+  width: 70%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+.control-label{
+  padding: 0;
+}
+.col-md-12{
+  padding: 0;
 }

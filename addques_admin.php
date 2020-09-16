@@ -1,58 +1,13 @@
+<?php session_start();
+	include 'db.php';
 
-<?php  include 'db.php';
-session_start();
-$quizn= $_SESSION['quizn'];
-$quesno= "";
-$quesno++;
-
-// $res=mysqli_query($connection,"SELECT * FROM quiz WHERE id=$id");
-//
-//   $quizname=$res["quizname"];
-
-// $q=mysqli_query($connection,"SELECT * FROM quiz WHERE quizname=$exam_title");
-// while ($row=mysqli_fetch_array($q)) {
-//   $exam_title=$row["quizname"];
-// }
-if(isset($_POST['ques'])){
-	$question_text = $_POST['question_text'];
-	$correct_choice = $_POST['correct_choice'];
-	// Choice Array
-	$choice1 = $_POST['choice1'];
-	$choice2 = $_POST['choice2'];
-	$choice3 = $_POST['choice3'];
-	$choice4 = $_POST['choice4'];
- // // First Query for Questions Table
- //
-	// $query = "INSERT INTO questions (";
-	// $query .= "question_number, question_text )";
-	// $query .= "VALUES (";
-	// $query .= " '{$question_number}','{$question_text}' ";
-	// $query .= ")";
-
-  $query = "INSERT INTO question (quizname, question_text, choice1, choice2, choice3, choice4, correct_choice, quesno)
-        VALUES('$quizn', '$question_text', '$choice1', '$choice2', '$choice3', '$choice4', '$correct_choice', '$quesno')";
-
-	$insert_row = mysqli_query($connection,$query);
-
-	//Validate First Query
-  if($insert_row){
-		$message = "Question has been added successfully";
-	}
-}
-	if($quesno>=	$_SESSION['totalq']){
-		session_destroy();
-		unset($_SESSION['quizn']);
-		unset($_SESSION['totalq']);
-		header("location: addques_admin.php");
-	}
-		// $q = "SELECT * FROM question WHERE quizname=$quizn";
-    //   $result = mysqli_query($connection,$q);
-    //   if($result){
-    //     $total = mysqli_num_rows($result);
-  	// 	   $next = $total+1;
-    //      $quesno=$total;
-    //   }
-
+ if (!isset($_SESSION["adminlogin"])) {
+	 ?>
+	 <script type="text/javascript">
+		 window.location="index.php";
+	 </script>
+<?php
+ }
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -66,51 +21,76 @@ if(isset($_POST['ques'])){
   </head>
 
   <body>
-    <?php require "adminportal.php" ?>
+    <?php require "adminportal.php";
+		echo '<div class="row">
+		<span class="title1" style="margin-left: 40%;font-size: 35px; margin-top: 15px;"><b>Enter Question Details</b></span>
+		<div class="col-md-6" style="  margin: auto;  margin-top: 40px;"><form class="form-horizontal " style=" margin: auto; margin-top: 40px;" name="form" action="update.php?q=addqns&n=' . @$_GET['n'] . '&eid=' . @$_GET['eid'] . '&ch=4 "  method="POST">
+		<fieldset>';
 
-    <div class="container addques">
+		for ($i = 1; $i <= $_GET['n']; $i++) {
+						echo '<b>Question number&nbsp;' . $i . '&nbsp;:</><br />
+			<div class="form-group">
+				<label class="col-md-12 control-label" for="qns' . $i . ' "></label>
+				<div class="col-md-12 ">
+					<textarea rows="3" cols="5" name="qns' . $i . '" class="form-control" placeholder="Write question number ' . $i . ' here..."></textarea>
+				</div>
+			</div>
 
-      <h2>Enter Question Details to Quiz </h2>
-      <?php if(isset($message)){
-        echo "<h4>" . $message . "</h4>";
-      } ?>
+			<div class="form-group">
+				<label class="col-md-12 control-label" for="' . $i . '1"></label>
+				<div class="col-md-12">
+					<input id="' . $i . '1" name="' . $i . '1" placeholder="Enter option a" class="form-control input-md" type="text">
+				</div>
+			</div>
 
-      <form method="POST" action="addques_admin.php">
-          <p>
-            <label>Question Number:</label>
-            <input type="number" name="question_number" value="<?php echo $quesno;  ?>">
-          </p>
-          <p>
-            <label>Question Text:</label>
-            <input type="text" name="question_text">
-          </p>
-          <p>
-            <label>Choice 1:</label>
-            <input type="text" name="choice1">
-          </p>
-          <p>
-            <label>Choice 2:</label>
-            <input type="text" name="choice2">
-          </p>
-          <p>
-            <label>Choice 3:</label>
-            <input type="text" name="choice3">
-          </p>
-          <p>
-            <label>Choice 4:</label>
-            <input type="text" name="choice4">
-          </p>
-          <p>
-            <label>Correct Option Number</label>
-            <input type="number" name="correct_choice">
-          </p>
-          <input type="submit" name="ques" value ="submit">
+			<div class="form-group">
+				<label class="col-md-12 control-label" for="' . $i . '2"></label>
+				<div class="col-md-12">
+					<input id="' . $i . '2" name="' . $i . '2" placeholder="Enter option b" class="form-control input-md" type="text">
+				</div>
+			</div>
 
+			<div class="form-group">
+				<label class="col-md-12 control-label" for="' . $i . '3"></label>
+				<div class="col-md-12">
+					<input id="' . $i . '3" name="' . $i . '3" placeholder="Enter option c" class="form-control input-md" type="text">
+				</div>
+			</div>
 
-      </form>
-    </div>
+			<div class="form-group">
+				<label class="col-md-12 control-label" for="' . $i . '4"></label>
+				<div class="col-md-12">
+					<input id="' . $i . '4" name="' . $i . '4" placeholder="Enter option d" class="form-control input-md" type="text">
+				</div>
+			</div>
 
+			<br />
 
+			<b>Correct answer</b>:<br />
+			<div class="form-group">
+
+			<select id="ans' . $i . '" name="ans' . $i . '" placeholder="Choose correct answer " class="form-control input-md" >
+			 	<option value="a">Select answer for question ' . $i . '</option>
+				<option value="a">option a</option>
+				<option value="b">option b</option>
+				<option value="c">option c</option>
+				<option value="d">option d</option>
+			</select>
+			</div>
+			<br /><br />';
+		}
+
+		echo '<div class="form-group">
+		<label class="col-md-12 control-label" for=""></label>
+		<div class="col-md-12">
+			<input  type="submit" style="margin-left:45%" class="btn btn-primary" value="Submit" class="btn btn-primary"/>
+		</div>
+	</div>
+
+	</fieldset>
+	</form></div>';
+		?>
+		</div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

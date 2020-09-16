@@ -1,5 +1,9 @@
 <?php
+
+session_start();
 require "admincheck.php";
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -24,7 +28,9 @@ require "admincheck.php";
           <h1>Admin Login</h1>
           <div class="formbox">
 
-            <form class="" action="" method="Post">
+
+            <form class="" action="admin_login.php" method="Post">
+
               <p>Username</p>
               <input type="text" name="username" placeholder="Enter Username">
               <p>Password</p>
@@ -44,7 +50,12 @@ require "admincheck.php";
     }
     else
     {
-      window.location.replace("adminportal.php");
+
+      <?php
+        $_SESSION["adminlogin"] = $admin_username;
+      ?>;
+      window.location.replace("home_admin.php");
+
     }
     setTimeout(clear,5000);
     function clear()

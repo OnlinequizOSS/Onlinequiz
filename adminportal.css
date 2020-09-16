@@ -1,0 +1,91 @@
+*{
+  padding: 0;
+color: #007bff;
+}
+.titlehead{
+  background-color: #8aa7ec;
+  padding: 20px 40px;
+  margin-left: 0;
+
+}
+.titlehead h1{
+  color: white;
+  display: inline;
+  float: left;
+  font-size: 3rem;
+  font-weight: bold;
+}
+.log{
+   display: inline;
+  text-align: right;
+}
+.logout{
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+.logout:hover{
+  color: white;
+  text-decoration: none;
+}
+.col-lg-6{
+  padding: 0;
+}
+.dashboard{
+  padding: 0;
+  border:1px solid #8aa7ec;
+  border-top: none;
+}
+.hello{
+  color: #007bff;
+  padding-left: 40px;
+}
+#dashboard-items{
+  padding-right: 15px;
+}
+/* .nav-item:hover{
+  background-color: #adaaaa;
+
+} */
+.nav-item a:hover {
+      color: black;
+  }
+/* add quiz */
+  .addquiz{
+    margin: auto;
+    width: 30%;
+    margin-top: 25px;
+  }
+.addques{
+  margin: 15px auto;
+}
+.title1{
+   margin-left:40%;
+   font-size:35px;
+   color: #007bff;
+   position: relative;
+   top: 20px;
+}
+.removetable{
+    font-size: 20px;
+    color: #007bff;
+    position: relative;
+    top: 20px;
+    margin: auto;
+    width: 65%;
+    margin-top: 40px;
+}
+.removebtn{
+  margin:0px;
+  border-color:#007bff;
+}
+.hometable{
+  width: 70%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+.control-label{
+  padding: 0;
+}
+.col-md-12{
+  padding: 0;
+}

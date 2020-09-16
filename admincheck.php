@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST['submit']))
 {
+
     $admin_username=$_POST['username'];
     $admin_pass=$_POST['password'];
 
@@ -39,4 +40,6 @@ if(isset($_POST['submit']))
 }
 
 
+
 ?>
+

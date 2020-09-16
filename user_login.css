@@ -5,6 +5,7 @@ body{
   background-size: cover;
   text-align: center;
   font-family: 'Merriweather', serif;
+
   width:100%;
   overflow:hidden;
 
@@ -16,6 +17,7 @@ body{
     right: 3.125rem;
     font-size: 20px;
 }
+
 .loginbox{
     border-radius: 0.3125rem;
     width: 25rem;
@@ -33,6 +35,7 @@ body{
 .loginbox:hover{
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow:3px 3px 5px #444;
+
 }
 .avatarbox {
     width: 9.375rem;
@@ -63,6 +66,7 @@ h1{
   text-align: left;
   border-radius: 0.625rem;
 }
+
 
 input{
   cursor:pointer;
@@ -105,11 +109,14 @@ position: absolute;
 left: 50%;
 right: 50%;
 transform: translate(-50%, -40%);
+
 transition:0.5s;
+
 }
 .btn:hover{
     background: transparent;
     color: white;
+
 }
 ::placeholder{
   color: white;
@@ -127,10 +134,12 @@ a:hover {
 @media screen and (max-width: 480px){
   .loginbox{
       width: 20rem;
+    
       height: 32.25rem;
   }
   .avatarbox {
     transform: translate(-50%, 120%);
+
   }
   h1{
     padding: 2rem 0;
@@ -138,6 +147,8 @@ a:hover {
   a{
     display: block;
   }
+
+
   .mainmenu{
     position: absolute;
     right: 0.3125rem;
@@ -161,3 +172,4 @@ h3{
   color:red;
   font-family:cursive,sans-serif;
 }
+

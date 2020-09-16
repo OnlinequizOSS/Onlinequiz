@@ -43,7 +43,7 @@ session_start();
     echo "</table>";
     ?>
 
-    <div id="button">Change Password</div>
+    <div id="button"><a class="link" href="<?php echo "user_changepassword.php?id=".$detailsrow['id'];?>">Change Password</a></div>
     </section>
 </body>
 </html>

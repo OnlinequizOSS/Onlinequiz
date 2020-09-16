@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['name']))
+{
+	header("location:user_login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +17,7 @@ session_start();
 <body>
     <header>
     <div id="quizickle">Quizickle</div>
-    <div id="logout"><i class="fas fa-sign-out-alt"></i>Logout</div>
+    <div id="logout"><a href="user_logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></div>
     </header>
     <nav>
     <ul>

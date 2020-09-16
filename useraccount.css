@@ -49,5 +49,17 @@ td{
 
 .link{
     text-decoration: none;
+    color:white;
 }
 
+#logout a{
+    text-decoration:none;
+}
+
+#logout a, #logout a:visited{
+    color:white;
+    transition:0.3s;
+}
+#logout a:hover,#logout a:active{
+    color:black;
+}

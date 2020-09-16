@@ -1,3 +1,9 @@
+<!-- <?php
+session_start();
+?> -->
+
+
+
 <div class="row titlehead navbar ">
   <h1 class="col-lg-6">Quizickle</h1>
   <div class="log col-lg-6">

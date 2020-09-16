@@ -63,3 +63,8 @@ td{
 #logout a:hover,#logout a:active{
     color:black;
 }
+
+th{
+    color:black;
+    background:#bfff00;
+}

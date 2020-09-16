@@ -22,7 +22,7 @@
   <body>
     <?php require "adminportal.php" ?>
    <div class="top">
-    <span style="color:black; font-size:x-large; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">Student details:--</span>
+    <span style="color:white; font-size:x-large; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">Student details</span>
    </div>
    <br><br>
     

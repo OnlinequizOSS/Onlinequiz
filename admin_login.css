@@ -5,7 +5,26 @@ body{
   background-size: cover;
   text-align: center;
   font-family: 'Merriweather', serif;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+}
+.mainmenu{
+    display: inline;
+    position: absolute;
+    top: 1.875rem;
+    right: 3.125rem;
+    font-size: 20px;
+}
 
+a{
+  text-decoration: none;
+  font-family: cursive;
+  color: black;
+  transition:0.2s;
+}
+a:hover {
+  color: white;
 }
 .loginbox{
     border-radius: 0.3125rem;
@@ -19,12 +38,12 @@ body{
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     padding: 3.75rem 1.875rem;
+    transition:0.5s;
 }
 .loginbox:hover{
   background-color: rgba(0, 0, 0, 0.3);
   transition: 0.5s;
-
-
+  box-shadow:5px 5px 7px #555;
 }
 .avatarbox {
     width: 12.5rem;
@@ -70,6 +89,7 @@ h1{
   width: 100%;
   color: #fff;
   font-size: 0.9375rem;
+  cursor:pointer;
 }
 .formbox input[type="text"]:focus , .formbox input[type="password"]:focus {
   border-bottom: transparent;
@@ -110,4 +130,20 @@ transform: translate(-50%, 0%);
   .avatarbox {
     transform: translate(-50%, 70%);
   }
+  .mainmenu{
+    position: absolute;
+    right: 0.3125rem;
+    width: 13.125rem;
+    top: 0.9375rem;
+    font-size: 0.9375rem;
+  }
+}
+
+#error
+{
+  position:absolute;
+  top:5vh;
+  left:44%;
+  color:red;
+  font-weight:bold;
 }

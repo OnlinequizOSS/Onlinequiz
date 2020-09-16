@@ -1,7 +1,9 @@
+
 <?php
 session_start();
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,6 +15,7 @@ session_start();
     <meta name="HandheldFriendly" content="true">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Patua+One&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
   </head>
+
   <body onload="setTimeout(clear,3000)">
 
 <?php
@@ -60,12 +63,14 @@ if(isset($_POST['submit'])){
     <div class="mainmenu">
       <a href="index.php">Go Back To Main Menu</a>
     </div>
+
     <div class="loginbox">
       <div class="avatarbox">
         <img src="images/interview.png" alt="">
       </div>
           <h1>Student Login</h1>
           <div class="formbox">
+
             <form class="" action="user_login.php" method="post">
               <p>Email</p>
               <input type="text" name="email" placeholder="Enter email" required onchange="checkmail(this)">
@@ -135,6 +140,7 @@ function clear()
 }
 
 </script>
+
 
   </body>
 </html>

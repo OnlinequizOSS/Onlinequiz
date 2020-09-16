@@ -26,11 +26,27 @@ header{
     text-decoration:none;
 }
 
+<<<<<<< HEAD
 #logout:active,#logout a:visited{
     color:white;
 }
 
 #logout a:hover{
+=======
+#logout a{
+    text-decoration:none;
+}
+
+#logout a, #logout a:visited{
+    color:white;
+    transition:0.3s;
+}
+#logout a:hover,#logout a:active{
+    color:black;
+}
+
+#logout:hover{
+>>>>>>> 4e848d96e81a1345371cacedc0e09c89dfa6e680
     color:black;
 }
 

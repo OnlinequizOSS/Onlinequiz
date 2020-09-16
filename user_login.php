@@ -16,7 +16,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Patua+One&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
   </head>
 
-  <body onload="setTimeout(clear,3000)">
+  <body>
 
 <?php
 
@@ -85,6 +85,7 @@ if(isset($_POST['submit'])){
     </div>
 
 <script>
+  setTimeout(clear,3000);
 var emailcorr=0;
 var passcorr=0;
 

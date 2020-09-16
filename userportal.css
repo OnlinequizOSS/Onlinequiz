@@ -32,7 +32,8 @@ header{
 }
 
 #logout a:hover{
-=======
+    color:black;
+}
 #logout a{
     text-decoration:none;
 }

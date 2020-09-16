@@ -173,7 +173,7 @@ if(isset($_POST['submit']))
     </title>
 </head>
 
-<body onload="setTimeout(clear,3000)">
+<body>
     <div class="back" onclick="mainmenu()">Back</div>
     <div class="container">
 
@@ -221,13 +221,12 @@ if(isset($_POST['submit']))
 
 
 <script>
-
-var passcorr=0;
-var firstcorr=0;
-var lastcorr=0;
-var emailcorr=0;
-var phonecorr=0;
-var passmatch=0;
+var passcorr=1;
+var firstcorr=1;
+var lastcorr=1;
+var emailcorr=1;
+var phonecorr=1;
+var passmatch=1;
 function checkpass(inputtxt){
 var passw=  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 if(inputtxt.value.match(passw)) 

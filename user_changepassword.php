@@ -26,7 +26,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))&& isset($_POST["submit"])){
         $conn=mysqli_connect("localhost","root","","quizickle");
         $sql = "UPDATE user_registration SET password=? WHERE id=?";
         if($stmt = mysqli_prepare($conn, $sql)){
-            mysqli_stmt_bind_param($stmt, "si", $password,$id);
+            mysqli_stmt_bind_param($stmt, "si", $hashed_password,$id);
             if(mysqli_stmt_execute($stmt)){
                 header("location: userportal_account.php");
                 exit();

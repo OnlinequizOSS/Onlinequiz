@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    background:#8a77b9;
+    overflow:hidden;
+}
+
+.quizarea{
+    width:50%;
+    height:60vh;
+    margin:auto;
+    background:white;
+    margin-top:16vh;
+    border-radius:20px;
+    border:10px solid #6a1185;
+}

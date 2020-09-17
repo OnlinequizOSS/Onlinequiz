@@ -35,7 +35,7 @@ if(!isset($_SESSION['name']))
     echo "<table>";
     echo "<tr><th>Quiz name</th> <th>No. of questions</th><th>Marks per correct Answer</th><th>Marks per wrong answer</th><th>Attempt Quiz</th></tr>";
     while($row = mysqli_fetch_array($res)){
-        echo "<tr><td>" . $row['quizname'] . "</td><td>" . $row['totalques'] . "</td><td>" . $row['correctno'] . "</td><td>" . $row['wrongno'] . "</td><td>"; ?>  <a href="quizpage.php?n=<?php echo $row['quizid'] ?>" id="attempt">Attempt quiz</a> <?php echo "</td></tr>";
+        echo "<tr><td>" . $row['quizname'] . "</td><td>" . $row['totalques'] . "</td><td>" . $row['correctno'] . "</td><td>" . $row['wrongno'] . "</td><td>"; ?>  <a href="exam.php?n=<?php echo $row['quizid'] ?>&total=<?php echo $row['totalques'] ?>" id="attempt">Attempt quiz</a> <?php echo "</td></tr>";
     }
     echo "<table>";
     ?>

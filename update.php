@@ -17,11 +17,11 @@ include 'db.php';
          $total   = $_POST['totalques'];
         // $tq=$total;
          $correct = $_POST['correctno'];
-         $wrong   = $_POST['wrongno'];
+         // $wrong   = $_POST['wrongno'];
          $time    = $_POST['testtime'];
          $status  = "disabled";
          $id      = uniqid();
-         $q3      = mysqli_query($connection, "INSERT INTO quiz VALUES(NULL,'$id','$name','$total','$correct','$wrong','$time', 'NOW()','$status')");
+         $q3      = mysqli_query($connection, "INSERT INTO quiz VALUES(NULL,'$id','$name','$total','$correct','$time', 'NOW()','$status')");
          header("location:addques_admin.php?eid=$id&n=$total");
      }
 
@@ -72,7 +72,7 @@ include 'db.php';
          }
 
          header("location:home_admin.php");
-     } 
+     }
 
      if (@$_GET['q'] == 'rmquiz') {
          $eid = @$_GET['eid'];

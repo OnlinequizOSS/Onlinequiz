@@ -1,6 +1,10 @@
 <?php
     session_start();
+<<<<<<< HEAD
+    $tq=$_POST["totalques"];
+=======
     // $tq=$_POST["totalques"];
+>>>>>>> a425e300ded8f4eadf065f88ccc2dcdce2b22b0d
 include 'db.php';
  if (!isset($_SESSION["adminlogin"])) {
    ?>
@@ -17,11 +21,11 @@ include 'db.php';
          $total   = $_POST['totalques'];
         // $tq=$total;
          $correct = $_POST['correctno'];
-         // $wrong   = $_POST['wrongno'];
+         $wrong   = $_POST['wrongno'];
          $time    = $_POST['testtime'];
          $status  = "disabled";
          $id      = uniqid();
-         $q3      = mysqli_query($connection, "INSERT INTO quiz VALUES(NULL,'$id','$name','$total','$correct','$time', 'NOW()','$status')");
+         $q3      = mysqli_query($connection, "INSERT INTO quiz VALUES(NULL,'$id','$name','$total','$correct','$wrong','$time', 'NOW()','$status')");
          header("location:addques_admin.php?eid=$id&n=$total");
      }
 
@@ -33,7 +37,11 @@ include 'db.php';
          for ($i = 1; $i <= $n; $i++) {
              $qid  = $i;
              $qns  = addslashes($_POST['qns' . $i]);
+<<<<<<< HEAD
+             $q3   = mysqli_query($connection, "INSERT INTO questable VALUES  (NULL,'$eid','$qid','$qns', '$ch','$i','$tq')") or die();
+=======
              $q3   = mysqli_query($connection, "INSERT INTO questable VALUES  (NULL,'$eid','$qid','$qns', '$ch','$i','$n')") or die();
+>>>>>>> a425e300ded8f4eadf065f88ccc2dcdce2b22b0d
              $oaid = 1;
              $obid = 2;
              $ocid = 3;
@@ -72,7 +80,7 @@ include 'db.php';
          }
 
          header("location:home_admin.php");
-     }
+     } 
 
      if (@$_GET['q'] == 'rmquiz') {
          $eid = @$_GET['eid'];
@@ -89,6 +97,9 @@ include 'db.php';
          header("location:removequiz_admin.php");
      }
 
+<<<<<<< HEAD
+ // if(isset($_POST['addq'])){
+=======
      if (@$_GET['deidquiz'] ) {
 		         $eid = @$_GET['deidquiz'];
 		         $r1 = mysqli_query($connection, "UPDATE quiz SET status='disabled' WHERE quizid='$eid' ") or die('Error');
@@ -121,6 +132,7 @@ include 'db.php';
  ?>
 
  <!-- // if(isset($_POST['addq'])){
+>>>>>>> a425e300ded8f4eadf065f88ccc2dcdce2b22b0d
  // 	$quizname = mysqli_real_escape_string($connection, $_POST['quizname']);
  // 	$totalques = mysqli_real_escape_string($connection,$_POST['totalques']);
  // 	$correctno = mysqli_real_escape_string($connection,$_POST['correctno']);
@@ -135,8 +147,13 @@ include 'db.php';
  //   $result = mysqli_query($connection,$query);
  // 	if ($result) {
  //   // $last_id = mysqli_insert_id($connection);
+<<<<<<< HEAD
+ // 		$_SESSION['quizn'] = $quizname;
+ // 		for($i=1;$i<=$totalques;$i++){
+=======
  // 		$_SESSION['quizn'] = $quizname; -->
  <!-- // 		for($i=1;$i<=$totalques;$i++){
+>>>>>>> a425e300ded8f4eadf065f88ccc2dcdce2b22b0d
  // 			$_SESSION['index']= $i;
  // 			header("location: addques_admin.php");
  //
@@ -149,4 +166,10 @@ include 'db.php';
  //     die("Query for quiz could not be executed" . $query);
  //   }
  // }
+<<<<<<< HEAD
+ // }
+
+ ?>
+=======
  // } -->
+>>>>>>> a425e300ded8f4eadf065f88ccc2dcdce2b22b0d

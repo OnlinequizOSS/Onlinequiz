@@ -1,3 +1,8 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 .button{
     display:flex;
     flex-direction: row;
@@ -5,7 +10,81 @@
     padding:10px;
     
 }
+
+body{
+    background:#abcdef;
+}
 .btn{
     margin:auto;
     padding:10px;
+}
+
+#timer{
+    position:absolute;
+    top:5px;
+    left:10px;
+    line-height:60px;
+    width:250px;
+    color:white;
+    background:#8a7799;
+    border-radius:8px;
+    text-align:center;
+    font-size:125%;
+    z-index:1;
+}
+
+#quizarea{
+    width:70%;
+    margin:auto;
+    background:white;
+    position:relative;
+    padding:20px;
+    margin-top:25vh;
+    height:50vh;
+    margin-left:15%;
+    border-radius:20px;
+    border:10px solid rgb(255, 255, 94);
+    display:inline-block;
+}
+
+p,form{
+    width:30%;
+}
+p{
+    float:left;
+    margin-left:10px;
+    margin-top:15vh;
+}
+form{
+    float:right;
+    margin-top:5vh;
+}
+ol{
+    list-style-type:none;
+    margin-right:20%;
+}
+li{
+    border:1px solid #00000030;
+    margin:10px;
+    padding:5px;
+}
+#prev{
+    position:absolute;
+    left:8px;
+    bottom:8px;
+}
+#next{
+    position:absolute;
+    right:8px;
+    bottom:8px;
+}
+
+#next,#prev{
+    border-radius:20px;
+    background:white;
+    width:10%;
+    transition:0.5s;
+}
+#next:hover,#prev:hover,#next:focus,#prev:focus{
+    background:yellow;
 }

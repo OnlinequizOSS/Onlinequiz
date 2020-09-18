@@ -11,12 +11,7 @@ include 'db.php';
 
 $query = "SELECT * FROM quiz"; //You don't need a ; like you do in SQL
 $result = mysqli_query($connection,$query);
-// if(isset($_POST['delete_id'])){
-// $id = $_POST['delete_id'];
-// $query = "delete from classes where ID = $id";
-// mysqli_query($conn, $query);
-//  echo '<script>window.location.href="courses.php";</script>';;
-// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -30,55 +25,37 @@ $result = mysqli_query($connection,$query);
   </head>
 
   <body>
+
     <?php require "adminportal.php" ?>
-    <div class="content-main">
-    <div class="container-fluid">
+    <div class="container">
+      <h1 style="text-align:center; font-size: 30px; margin-bottom: 40px; margin-top: 25px;">Exam Details</h1>
     <div class="row">
-        <div class="col-sm-12 col-md-12">
-    <h3 style="color:#007bff;font-size: 3rem; text-align: center; margin: 1.5rem;">Exam Details</h3>
-        <div class="row q-data">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="portlet-body">
-                      <div class="new-link">
-                      <!-- <a class="btn btn-success" href="new_course.php"><i class="fa fa-plus add" data-toggle="tooltip"></i>New Course</a></div> -->
-                      <div class="row">
-                      <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="portlet-body">
-                      <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-12">
-                            <div class="row">
-                            <div class="col-md-12">
-                              <div class="table-responsive">
-                                  <table class='table table-hover hometable' id='selected-user-list' >
-                              				<thead><tr><th>ID</th><th>Exam Name</th><th>Total Questions</th><th>Action</th></tr></thead>
-                              				<tbody>
-                              				<?php
-                                          $r=1;
-                              					while($row = mysqli_fetch_array($result)){   //Creates a loop to loop through results
+    <div class="col-md-12">
+    <?php
+    $result = mysqli_query($connection, "SELECT * FROM quiz ORDER BY id DESC") or die('Error');
+    echo '<div class="panel"><table class="table table-striped"  style="vertical-align:middle">
+  <tr><td style="vertical-align:middle"><b>S.N.</b></td><td style="vertical-align:middle"><b>Name</b></td><td style="vertical-align:middle"><b>Total question</b></td><td style="vertical-align:middle"><b>Marks</b></td><td style="vertical-align:middle"><b>Time limit</b></td><td style="vertical-align:middle"><b>Status</b></td><td style="vertical-align:middle"><b>Action</b></td></tr>';
+    $c = 1;
+    while ($row = mysqli_fetch_array($result)) {
+        $title   = $row['quizname'];
+        $total   = $row['totalques'];
+        $correct = $row['correctno'];
+        $time    = $row['testtime'];
 
-                                          	echo "<tr><td>" . $r . "</td><td>" . $row['quizname'] . "</td><td>" . $row['totalques'] . "</td></tr>";  //$row['index'] the index here is a field name
-                                            $r++;
-                                          }
-                              				?>
+        $eid     = $row['quizid'];
+        $status  = $row['status'];
+        if ($status == "enabled") {
+            echo '<tr><td style="vertical-align:middle">' . $c++ . '</td><td style="vertical-align:middle">' . $title . '</td><td style="vertical-align:middle">' . $total . '</td><td style="vertical-align:middle">' . $correct * $total . '</td><td style="vertical-align:middle">' . $time . '&nbsp;min</td><td style="vertical-align:middle">Enabled</td>
+  <td style="vertical-align:middle"><b><a href="update.php?deidquiz=' . $eid . '" class="btn logb" style="color:#FFFFFF;background:#ff0000;font-size:12px;padding:5px;">&nbsp;<span><b style="color:white;">Disable</b></span></a></b></td></tr>';
+        } else {
+            echo '<tr><td style="vertical-align:middle">' . $c++ . '</td><td style="vertical-align:middle">' . $title . '</td><td style="vertical-align:middle">' . $total . '</td><td style="vertical-align:middle">' . $correct * $total . '</td><td style="vertical-align:middle">' . $time . '&nbsp;min</td><td style="vertical-align:middle">Disabled</td>
+  <td style="vertical-align:middle"><b><a href="update.php?eeidquiz=' . $eid . '" class="btn logb" style="color:#FFFFFF;background:darkgreen;font-size:12px;padding:5px;">&nbsp;<span><b style="color:white;">Enable</b></span></a></b></td></tr>';
 
-                                    </tbody>
-                                  </table>
-                              </div>
-                              <div class="text-right"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                  </div>
-            </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
+        }
+    }
+  ?>
+</div>
+</div></div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

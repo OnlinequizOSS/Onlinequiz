@@ -1,11 +1,13 @@
 <?php
-	session_start();
+    session_start();
+    $tq=$_POST["totalques"];
 include 'db.php';
  if (!isset($_SESSION["adminlogin"])) {
    ?>
    <script type="text/javascript">
      window.location="index.php";
    </script>
+
 <?php
  }
 
@@ -13,6 +15,7 @@ include 'db.php';
          $name    = $_POST['quizname'];
          $name    = ucwords(strtolower($name));  //capitalizes first word
          $total   = $_POST['totalques'];
+        // $tq=$total;
          $correct = $_POST['correctno'];
          $wrong   = $_POST['wrongno'];
          $time    = $_POST['testtime'];
@@ -26,14 +29,15 @@ include 'db.php';
          $n   = @$_GET['n'];
          $eid = @$_GET['eid'];
          $ch  = @$_GET['ch'];
+       //  $total   = $_POST['totalques'];
          for ($i = 1; $i <= $n; $i++) {
-             $qid  = uniqid();
+             $qid  = $i;
              $qns  = addslashes($_POST['qns' . $i]);
-             $q3   = mysqli_query($connection, "INSERT INTO questable VALUES  (NULL,'$eid','$qid','$qns', '$ch','$i')") or die();
-             $oaid = uniqid();
-             $obid = uniqid();
-             $ocid = uniqid();
-             $odid = uniqid();
+             $q3   = mysqli_query($connection, "INSERT INTO questable VALUES  (NULL,'$eid','$qid','$qns', '$ch','$i','$tq')") or die();
+             $oaid = 1;
+             $obid = 2;
+             $ocid = 3;
+             $odid = 4;
              $a    = addslashes($_POST[$i . '1']);
              $b    = addslashes($_POST[$i . '2']);
              $c    = addslashes($_POST[$i . '3']);

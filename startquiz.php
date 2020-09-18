@@ -169,7 +169,7 @@ if(distance < 0) {
   clearInterval(timer);
   //document.write(countDownDate," ",x);
   document.getElementById("timer").innerHTML = "EXPIRED";
- // window.location.replace("examsubmitted.php");
+  window.location.replace("examsubmitted.php");
 }
 },1000);
 </script>

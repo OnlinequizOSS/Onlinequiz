@@ -47,7 +47,7 @@ header{
 }
 
 #logout:hover{
->>>>>>> 4e848d96e81a1345371cacedc0e09c89dfa6e680
+
     color:black;
 }
 
@@ -128,4 +128,57 @@ tr:hover{
 #attempt:hover{
     background:#8a77b9;
     color:black;
+}
+.submitted{
+  text-align: center
+  font-size: 2vw;
+  margin: 150px auto;
+width: 35%;
+color: black;
+font-family: serif;
+
+}
+.h{
+  background-color: #72aeeb;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+.h:hover{
+  transition: 0.5s;
+background-color: white;
+  color: #8a77b9;
+}
+.panel{
+  padding-top: 50px;
+padding-left: 18%;
+padding-right: 18%;
+font-size: 20px;
+color: #007bff;
+}
+.instruct{
+  font-family: serif;
+font-size: 3rem;
+text-align: center;
+    font-size: 2.75rem;
+}
+.goback{
+    font-family: cursive;
+    font-size:1.5vw;
+    font-weight: bolder;
+    text-decoration: none;
+    position: absolute;
+    top: 9rem;
+    left: 2rem;
+    /* border: 2px solid black; */
+    /* border-radius: 3px; */
+    color: black;
+    padding: 8px 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.goback:hover{
+    background:#8a77b9;
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
 }

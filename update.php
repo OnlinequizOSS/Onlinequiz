@@ -15,11 +15,11 @@ include 'db.php';
          $name    = ucwords(strtolower($name));  //capitalizes first word
          $total   = $_POST['totalques'];
          $correct = $_POST['correctno'];
-         $wrong   = $_POST['wrongno'];
+         // $wrong   = $_POST['wrongno'];
          $time    = $_POST['testtime'];
          $status  = "disabled";
          $id      = uniqid();
-         $q3      = mysqli_query($connection, "INSERT INTO quiz VALUES(NULL,'$id','$name','$total','$correct','$wrong','$time', 'NOW()','$status')");
+         $q3      = mysqli_query($connection, "INSERT INTO quiz VALUES(NULL,'$id','$name','$total','$correct','$time', 'NOW()','$status')");
          header("location:addques_admin.php?eid=$id&n=$total");
      }
 

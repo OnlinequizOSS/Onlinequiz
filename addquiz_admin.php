@@ -52,12 +52,12 @@ include 'db.php';
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label class="col-md-12 control-label" for="wrongno"></label>
               <div class="col-md-12">
                 <input id="wrongno" name="wrongno" placeholder="Enter minus marks on wrong answer without sign" class="form-control input-md" min="0" type="number">
               </div>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <label class="col-md-12 control-label" for="testtime"></label>

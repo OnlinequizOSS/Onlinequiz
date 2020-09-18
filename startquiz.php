@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "dbcon.php";
+date_default_timezone_set('Asia/Kolkata');
 if(!isset($_SESSION['name']))
 {
     header("location:user_login.php");
@@ -28,6 +29,7 @@ else
     $endtime=$row['time'];
     $starttime=date('Y-m-d H:i:s');
 }
+
 
 $countdowntime= date('Y/m/d H:i:s',strtotime($endtime));
 
@@ -167,6 +169,7 @@ if(distance < 0) {
   clearInterval(timer);
   //document.write(countDownDate," ",x);
   document.getElementById("timer").innerHTML = "EXPIRED";
+ // window.location.replace("examsubmitted.php");
 }
 },1000);
 </script>
